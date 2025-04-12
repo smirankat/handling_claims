@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Комментарий к статусу</title>
+</head>
+<body>
+  <h1>Комментарий к статусу</h1>
+     <form action="/comment" method="POST">
+        <input type="hidden" name="id" value="{{claim.id}}" />
+        <label>Комментарий к статусу</label><br>
+        <input name="comment" class="" /><br><br>
+        <input type="submit" value="Отправить" />
+     </form>
+     <a href="/">К списку обращений</a>  
+</body>
+</html>

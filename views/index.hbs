@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список обращений</title>
+    <style>
+        table {
+            margin: 10px;
+        }
+       table, th, td {
+         border: 1px solid black;
+         border-collapse: collapse;
+       }
+       th, td {
+         padding: 10px;
+       }
+    </style>
+</head>
+<body>
+    <h1>Список обращений</h1>
+    <p><a href="/create">Создать обращение</a></p>
+    <p>Введите даты в формате YYYY-MM-DD</p>
+    <form action="/date" method="POST">
+        <label for="start">Start date: </label>
+        <input type="text" id="start" name="start" />
+        <label for="end">End date:</label>
+        <input type="text" id="end" name="end" />
+        <input type="submit" />
+    </form>
+    <table >
+        <tr><th>Дата</th><th>Тема обращения</th><th>Текст обращения</th><th>Статус</th><th>Комментарий к статусу</th><th></th></tr>
+        {{#each claims}}
+            <tr>
+                <td>{{this.date}}</td>
+                <td>{{this.subject}}</td>
+                <td>{{this.text}}</td>
+                <td>{{this.status}}
+                <a href="/edit/{{this.id}}">Изменить статус</a>
+                </td>
+                <td>{{this.comment}}</td>
+                <td>
+                    <form action="delete/{{this.id}}" method="POST" >
+                        <input type="submit" value="Удалить" />
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+    <form action="/cancel" method="POST" >
+        <input type="submit" value="Отменить обащения в статусе 'в работе'" />
+    </form>
+<p>Для добавления или изменения комментария к статусу обращения (Завершено, Отменено) выберите или подтвердите статус, перейдя по ссылке "Изменить статус" </p>
+     <a href="/">К списку обращений</a>
+</body>
+</html>

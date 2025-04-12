@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Изменить статус</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1>Изменить статус</h1>
+     <form action="/edit" method="POST">
+        <input type="hidden" name="id" value="{{claim.id}}" />
+        <div>
+          <input type="radio" id="" name="status" value="Новое" />
+          <label for="contactChoice1">Новое</label>
+          <input type="radio" id="" name="status" value="В работе" />
+          <label for="contactChoice2">В работе</label>
+          <input type="radio" id="" name="status" value="Завершено" />
+          <label for="contactChoice3">Завершено</label>
+          <input type="radio" id="" name="status" value="Отменено" />
+          <label for="contactChoice3">Отменено</label>
+        </div>
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+     </form>
+     <a href="/">К списку обращений</a>
+</body>
+<html>
